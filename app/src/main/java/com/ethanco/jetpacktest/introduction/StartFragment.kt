@@ -28,7 +28,9 @@ class StartFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         btn_next_fragment.setOnClickListener {
-            Navigation.findNavController(view!!).navigate(R.id.action_nav_first_frag_to_nav_second_frag)
+            view?.let {
+                Navigation.findNavController(it).navigate(R.id.action_nav_first_frag_to_nav_second_frag)
+            }
         }
 
         viewModel = ViewModelProviders.of(this).get(StartViewModel::class.java)
