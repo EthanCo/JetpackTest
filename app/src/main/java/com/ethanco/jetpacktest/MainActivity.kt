@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
-import com.ethanco.jetpacktest.introduction.IntroductionActivity
+import com.ethanco.jetpacktest.introduction.StartActivity
 import com.ethanco.jetpacktest.library.utils.PreferencesUtil
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_introduction.setOnClickListener {
-            val intent = Intent(MainActivity@this,IntroductionActivity::class.java)
+            val intent = Intent(MainActivity@this,StartActivity::class.java)
             startActivity(intent)
         }
     }
