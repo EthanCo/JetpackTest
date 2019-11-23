@@ -18,13 +18,13 @@ class MainActivity : AppCompatActivity() {
         PreferencesUtil.init(this)
 
         btn_write_sp.setOnClickListener {
-            var msg by PreferencesUtil<String>("test","")
-            msg = "hello"
+            var msg by PreferencesUtil("test","")
+            msg = "hello233333"
             Toast.makeText(LoginActivity@this,"写入成功", Toast.LENGTH_SHORT).show()
         }
 
         btn_get_sp.setOnClickListener {
-            val msg by PreferencesUtil<String>("test","")
+            val msg by PreferencesUtil("test","")
             Toast.makeText(LoginActivity@this,msg, Toast.LENGTH_SHORT).show()
         }
 
