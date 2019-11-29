@@ -1,7 +1,6 @@
 package com.heiko.jetpacktest2019
 
-import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.ViewModelProviders
+import android.content.Context
 
 
 
@@ -13,14 +12,14 @@ import androidx.lifecycle.ViewModelProviders
  * @date 2019/11/28
  */
 object InjectorUtils {
-    fun providePlantListViewModelFactory(activity: FragmentActivity): PlantListViewModel {
-        /*val repository = getPlantRepository(context)
-        return PlantListViewModelFactory(repository)*/
-        return ViewModelProviders.of(activity).get(PlantListViewModel::class.java)
-    }
-
-    /*private fun getPlantRepository(context: Context): PlantRepository {
+    private fun getPlantRepository(context: Context): PlantRepository {
         return PlantRepository.getInstance(
             AppDatabase.getInstance(context.applicationContext).plantDao())
-    }*/
+    }
+
+    fun providePlantListViewModelFactory(context: Context): PlantListViewModelFactory {
+        val repository = getPlantRepository(context)
+        return PlantListViewModelFactory(repository)
+        //return ViewModelProviders.of(activity).get(PlantListViewModel::class.java)
+    }
 }

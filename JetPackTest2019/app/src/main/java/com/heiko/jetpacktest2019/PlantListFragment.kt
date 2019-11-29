@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.heiko.jetpacktest2019.databinding.FragmentPlantListBinding
 
@@ -16,19 +16,18 @@ import com.heiko.jetpacktest2019.databinding.FragmentPlantListBinding
  * @date 2019/11/26
  */
 class PlantListFragment : Fragment() {
-    /*private val viewModel : PlantListViewModel by viewModels {
+    private val viewModel : PlantListViewModel by viewModels {
         InjectorUtils.providePlantListViewModelFactory(requireContext())
-    }*/
-    private var viewModel : PlantListViewModel? = null
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = InjectorUtils.providePlantListViewModelFactory(
+        /*viewModel = InjectorUtils.providePlantListViewModelFactory(
             activity as FragmentActivity
-        )
+        )*/
 
         val binding = FragmentPlantListBinding.inflate(inflater, container, false)
         context ?: return binding.root

@@ -1,27 +1,20 @@
 package com.heiko.jetpacktest2019
 
 /**
- * TODO
+ * PlantRepository
  *
  * @author Heiko
  * @date 2019/11/28
  */
-class PlantRepository constructor(/*private val plantDao: PlantDao*/) {
+class PlantRepository constructor(private val plantDao: PlantDao) {
 
-    fun getPlants() {
-        //plantDao.getPlants()
-    }
+    fun getPlants() = plantDao.getPlants()
 
-    fun getPlant(plantId: String) {
-        //plantDao.getPlant(plantId)
-        "1"
-    }
+    fun getPlant(plantId: String) = plantDao.getPlant(plantId)
 
-    fun getPlantsWithGrowZoneNumber(growZoneNumber: Int) {
-        //plantDao.getPlantsWithGrowZoneNumber(growZoneNumber)
-    }
+    fun getPlantsWithGrowZoneNumber(growZoneNumber: Int) = plantDao.getPlantsWithGrowZoneNumber(growZoneNumber)
 
-    /*companion object {
+    companion object {
         // For Singleton instantiation
         @Volatile
         private var instance: PlantRepository? = null
@@ -30,5 +23,5 @@ class PlantRepository constructor(/*private val plantDao: PlantDao*/) {
             instance ?: synchronized(this) {
                 instance ?: PlantRepository(plantDao).also { instance = it }
             }
-    }*/
+    }
 }

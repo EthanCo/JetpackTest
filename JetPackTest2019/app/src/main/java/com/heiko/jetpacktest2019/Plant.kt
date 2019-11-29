@@ -1,12 +1,18 @@
 package com.heiko.jetpacktest2019
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 /**
- * TODO
+ * 植物
  *
  * @author Heiko
  * @date 2019/11/28
  */
+@Entity(tableName = "plants")
 data class Plant(
+    @PrimaryKey @ColumnInfo(name = "id")
     val plantId: String,
     val name: String,
     val description: String,
