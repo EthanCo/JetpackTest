@@ -15,10 +15,10 @@ import androidx.work.WorkManager
  * @author Heiko
  * @date 2019/11/29
  */
-@Database(entities = [Plant::class], version = 1, exportSchema = false)
+@Database(entities = [GardenPlanting::class, Plant::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
-    //abstract fun gardenPlantingDao(): GardenPlantingDao
+    abstract fun gardenPlantingDao(): GardenPlantingDao
     abstract fun plantDao(): PlantDao
 
     companion object {
