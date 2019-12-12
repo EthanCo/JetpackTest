@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">JetPackTestLogin</string>
+    <string name="username_or_password_not_empty">用户名或密码不能为空</string>
+    <string name="login_failed">登录失败</string>
 </resources>
