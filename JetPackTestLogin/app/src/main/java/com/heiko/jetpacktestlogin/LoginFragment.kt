@@ -9,15 +9,19 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 
 
 class LoginFragment : Fragment(), View.OnClickListener {
     private lateinit var loadingDialog: ProgressDialog
-    private lateinit var viewModel: LoginViewModel
+    //private lateinit var viewModel: LoginViewModel
     private lateinit var viewHodler: ViewHolder
+
+    private val viewModel: LoginViewModel by viewModels {
+        InjectorUtils.provideLoginViewModelFactory(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -31,7 +35,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
+        //viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
         viewModel.toastLiveData.observe(this, Observer { message ->
             Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
         })

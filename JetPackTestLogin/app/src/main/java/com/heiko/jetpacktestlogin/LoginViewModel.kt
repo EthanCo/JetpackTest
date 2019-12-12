@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 import com.heiko.jetpacktestlogin.data.UserInfo
 import com.heiko.jetpacktestlogin.frame.kotlinex.getString
 
-class LoginViewModel : ViewModel() {
-    private val loginRepository = LoginRepository()
+class LoginViewModel internal constructor(private val loginRepository: LoginRepository) : ViewModel() {
+    //private val loginRepository = LoginRepository()
 
     val toastLiveData = MutableLiveData<String>()
     val loginSuccessLiveData = MutableLiveData<UserInfo>()
