@@ -14,16 +14,16 @@ class LoginViewModel internal constructor(private val loginRepository: LoginRepo
     val loadingDialogLiveData = MutableLiveData<Boolean>()
 
     fun login(userName: String, password: String) {
-        if (userName.isEmpty() || password.isEmpty()) {
+        /*if (userName.isEmpty() || password.isEmpty()) {
             val info = getString(R.string.username_or_password_not_empty)
             toastLiveData.postValue(info)
             return
-        }
+        }*/
 
         loadingDialogLiveData.postValue(true)
         Handler().postDelayed({
             val userInfo = loginRepository.login(userName, password)
-            if (userInfo == null) {
+            if (false) {
                 loadingDialogLiveData.postValue(false)
                 toastLiveData.postValue(getString(R.string.login_failed))
             } else {

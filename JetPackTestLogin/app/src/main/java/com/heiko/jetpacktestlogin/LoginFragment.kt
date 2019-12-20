@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.heiko.jetpacktestlogin.frame.compat.ImmersiveComapt
 
 
 class LoginFragment : Fragment(), View.OnClickListener {
@@ -28,6 +30,10 @@ class LoginFragment : Fragment(), View.OnClickListener {
     ): View? {
         val root = inflater.inflate(R.layout.login_fragment, container, false)
         viewHodler = ViewHolder(root)
+        /*val compatActivity = activity as AppCompatActivity
+        compatActivity.setSupportActionBar(mToolbar)
+        compatActivity.title = ""*/
+        ImmersiveComapt.immersive(activity, viewHodler.toolbar)
         viewHodler.setOnClickListener(this)
         loadingDialog = ProgressDialog(activity)
         return root
@@ -66,6 +72,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
     inner class ViewHolder {
         var etUserName: EditText
         var etPassword: EditText
+        var toolbar : Toolbar
 
         var btnLogin: Button
 
@@ -73,6 +80,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
             etUserName = view.findViewById(R.id.et_user_name)
             etPassword = view.findViewById(R.id.et_password)
             btnLogin = view.findViewById(R.id.btn_login)
+            toolbar = view.findViewById(R.id.toolbar)
         }
 
         fun setOnClickListener(listener: View.OnClickListener) {
