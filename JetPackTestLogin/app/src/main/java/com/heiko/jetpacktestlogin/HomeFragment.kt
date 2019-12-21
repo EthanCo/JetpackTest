@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.heiko.jetpacktestlogin.frame.compat.ImmersiveComapt
 
 
@@ -29,9 +31,10 @@ class HomeFragment : Fragment() {
         val supportActionBar = compatActivity.supportActionBar
 //        supportActionBar?.setDisplayHomeAsUpEnabled(true);//左侧添加一个默认的返回图标
 //        supportActionBar?.setHomeButtonEnabled(true); //设置返回键可用
-        /*toolbar.setNavigationOnClickListener { view ->
+        toolbar.setNavigationOnClickListener { view ->
             Toast.makeText(activity, "返回", Toast.LENGTH_SHORT).show()
-        }*/
+            findNavController().navigateUp()
+        }
         return root
     }
 
@@ -39,5 +42,4 @@ class HomeFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
     }
-
 }

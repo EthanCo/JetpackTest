@@ -10,7 +10,7 @@ class LoginViewModel internal constructor(private val loginRepository: LoginRepo
     //private val loginRepository = LoginRepository()
 
     val toastLiveData = MutableLiveData<String>()
-    val loginSuccessLiveData = MutableLiveData<UserInfo>()
+    var loginSuccessLiveData = MutableLiveData<UserInfo>()
     val loadingDialogLiveData = MutableLiveData<Boolean>()
 
     fun login(userName: String, password: String) {

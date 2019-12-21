@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.heiko.jetpacktestlogin.frame.compat.ImmersiveComapt
@@ -54,6 +55,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
         })
         viewModel.loginSuccessLiveData.observe(this, Observer {
             Toast.makeText(activity, "登录成功", Toast.LENGTH_SHORT).show()
+            viewModel.loginSuccessLiveData = MutableLiveData()
             val direction = LoginFragmentDirections.actionLoginFragmentToHomeFragment()
             findNavController().navigate(direction)
         })
